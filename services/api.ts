@@ -1,5 +1,6 @@
-import { API_BASE } from '../constants';
-import { ExtractionRequest, JobStatusResponse, VideoInfo } from '../types';
+import { ExtractionRequest, JobStatusResponse, VideoInfo } from '@/types';
+
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!
 
 const getCacheBuster = () => `?cb=${Math.random()}`;
 

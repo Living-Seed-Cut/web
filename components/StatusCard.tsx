@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
-import { JobStatusResponse } from '../types';
-import { PACIFYING_MESSAGES, CELEBRATION_MESSAGES } from '../constants';
+import { JobStatusResponse } from '@/types';
+import { PACIFYING_MESSAGES, CELEBRATION_MESSAGES } from '@/constants';
 import { Loader2, CheckCircle, AlertCircle, X } from './Icons';
 
 interface StatusCardProps {

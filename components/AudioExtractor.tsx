@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { 
   Youtube, 
@@ -16,14 +18,14 @@ import {
   Sparkles,
   Music,
   Video
-} from './components/Icons';
-import StatusCard from './components/StatusCard';
-import HistoryPanel from './components/HistoryPanel';
-import { api } from './services/api';
-import { ExtractionRequest, JobStatusResponse, VideoInfo, OutputFormat, HistoryItem } from './types';
-import { YOUTUBE_REGEX } from './constants';
+} from '@/components/Icons';
+import StatusCard from '@/components/StatusCard';
+import HistoryPanel from '@/components/HistoryPanel';
+import { api } from '@/services/api';
+import { ExtractionRequest, JobStatusResponse, VideoInfo, OutputFormat, HistoryItem } from '@/types';
+import { YOUTUBE_REGEX } from '@/constants';
 
-const App: React.FC = () => {
+const AudioExtractor: React.FC = () => {
   // Form State
   const [url, setUrl] = useState('');
   const [startTime, setStartTime] = useState('0:00');
@@ -310,17 +312,13 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-indigo-600 selection:text-white pb-20">
-      
-      {/* Container */}
       <div className="max-w-5xl mx-auto px-6 pt-12 md:pt-16">
-        
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-6">
             <div className="flex flex-col items-start">
                 <div className="mb-4">
                   <div className="bg-white/90 p-2 rounded-xl inline-block">
                     <img 
-                      src="https://livingseed.org/wp-content/uploads/2023/05/LSeed-Logo-1.png" 
+                      src="/LSeed-Logo-1.png" 
                       alt="Livingseed Logo" 
                       className="h-10 w-auto object-contain" 
                     />
@@ -652,4 +650,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default AudioExtractor;

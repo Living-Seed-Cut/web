@@ -1,5 +1,3 @@
-export const API_BASE = 'https://livingseed-cut.onrender.com';
-
 export const YOUTUBE_REGEX = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/|youtube\.com\/shorts\/|youtube\.com\/live\/|m\.youtube\.com\/watch\?v=|music\.youtube\.com\/watch\?v=)[a-zA-Z0-9_-]{11}([?&].*)?$/;
 
 export const PACIFYING_MESSAGES = {

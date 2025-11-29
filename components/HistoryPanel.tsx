@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useEffect } from 'react';
-import { HistoryItem } from '../types';
+import { HistoryItem } from '@/types';
 import { FileAudio, FileVideo, Download, X, Clock, Trash2 } from './Icons';
-import { api } from '../services/api';
+import { api } from '@/services/api';
 
 interface HistoryPanelProps {
   history: HistoryItem[];
@@ -110,16 +112,6 @@ const HistoryPanel: React.FC<HistoryPanelProps> = ({ history, isOpen, onClose, o
           </div>
         )}
       </div>
-
-      <style>{`
-        @keyframes slideInRight {
-          from { transform: translateX(100%); }
-          to { transform: translateX(0); }
-        }
-        .animate-slide-in-right {
-          animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-      `}</style>
     </>
   );
 };
