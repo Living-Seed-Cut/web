@@ -613,39 +613,7 @@ const AudioExtractor: React.FC = () => {
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
                             <button
-                                onClick={async () => {
-                                  try {
-                                    const downloadUrl = api.getDownloadUrl(currentJob.job_id);
-                                    
-                                    const response = await fetch(downloadUrl);
-                                    if (!response.ok) throw new Error('Download failed');
-                                    
-                                    const blob = await response.blob(); 
-                                    const blobUrl = window.URL.createObjectURL(blob);
-                                    
-                                    // Generate filename
-                                    const baseFilename = filename || videoInfo?.title || 'audio';
-                                    const sanitized = baseFilename.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-                                    const finalFilename = `${sanitized}.${outputFormat}`;
-                                    
-                                    // Create download link
-                                    const link = document.createElement('a');
-                                    link.href = blobUrl;
-                                    link.download = finalFilename;
-                                    
-                                    // Trigger download
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
-                                    
-                                    // Cleanup after delay
-                                    setTimeout(() => window.URL.revokeObjectURL(blobUrl), 100);
-                                    
-                                  } catch (err: any) {
-                                    console.error('Download error:', err);
-                                    setError(`Failed to download: ${err.message}`);
-                                  }
-                                }}
+                                onClick={() => window.open(api.getDownloadUrl(currentJob.job_id), '_blank')}
                                 className="px-10 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg transition-all hover:-translate-y-1 flex items-center justify-center gap-2 min-w-[200px]"
                             >
                                 <Download size={20} /> Download Now
